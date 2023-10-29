@@ -4,30 +4,51 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Acoes {
+
+	ArrayList<Produto> lista = new ArrayList<Produto>();
+
 	
-	public void inserir(Produto produto) {
-		ArrayList<Produto> lista = new ArrayList<Produto>();
+	public String inserir(Produto produto) {
 
-		System.out.println("Insira uma descrição para o produto:");
-		String descricao = new Scanner(System.in).next();
+		try {
+			return "Sucesso ao Adicionar";
+		}catch(Exception erro) {
+			return "Erro ao tentar Adicionar Produto";
+		}
 		
-		System.out.println("Insira o valor unitário para o produto:");
-		double valorUnit = new Scanner(System.in).nextDouble();
-		
-		System.out.println("Insira a quantidade de estoque do produto:");
-		double estoque = new Scanner(System.in).nextDouble();
-
-		Produto p = new Produto(descricao, valorUnit, estoque);
-		
-		lista.add(p);
+		//lista.add(p);
 	}
 	
-	public void alterar() {
-		
+	public String alterar(int posicao, Produto produto) {
+		try {
+			lista.set(posicao, produto);
+			return "Alteração Realizada!";
+		}catch(Exception erro) {
+			return"Erro ao Adicionar";
+		}
 	}
 	
 	public void excluir() {
 		
+	}
+	
+	public void menu() {
+		System.out.println(" ^^^^^^AÇÕES^^^^^^");
+		System.out.println("---------------------");
+		System.out.println("---Mostrar-Lista = 1-");
+		System.out.println("-Inserir-Produto = 2-");
+		System.out.println("-Alterar-Produto = 3-");
+		System.out.println("--Listar-Produto = 4-");
+		System.out.println("-Excluir-Produto = 5-");
+		System.out.println(" ---Para-Sair = 6---");
+		System.out.println("---------------------");
+
+	}
+	
+	public void volta(String volta) {
+		System.out.println(volta);
+		System.out.println("''''''''''''''''''''''''''");
+		System.out.println();
 	}
 
 }
