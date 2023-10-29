@@ -7,9 +7,9 @@ public class aula2poo {
 	
 	public static void main(String[] args) {
 		
-		ArrayList<Produto> lista = new ArrayList<Produto>();
+		ArrayList<Produto> lista = acoes.listar();
 		
-		int entrada = 0;
+		int entrada = 1;
 		int posicao;
 		String volta = "";
 		
@@ -19,26 +19,7 @@ public class aula2poo {
 		System.out.println("	'¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨'");
 		System.out.println();
 
-
-		
-		for(int i = 0; i < lista.size(); i++) {
-		}
-		
-		/*if(lista.size() == 0) {			
-			System.out.println("Insira uma descrição para o produto:");
-			String descricao = new Scanner(System.in).next();
-			
-			System.out.println("Insira o valor unitário para o produto:");
-			double valorUnit = new Scanner(System.in).nextDouble();
-			
-			System.out.println("Insira a quantidade de estoque do produto:");
-			int estoque = new Scanner(System.in).nextInt();
-
-			 p = new Produto(descricao, valorUnit, estoque);
-			
-			lista.add(p);
-		}*/
-		while(entrada < 4) {
+		while(entrada < 6 && entrada > 0) {
 			acoes.menu();	
 			entrada = new Scanner(System.in).nextInt();
 
@@ -60,13 +41,11 @@ public class aula2poo {
 				int estoque = new Scanner(System.in).nextInt();
 
 				 Produto produto = new Produto(descricao, valorUnit, estoque);
-				
-					lista.add(produto);
-
-				 
+							 
 				 volta = acoes.inserir(produto);
 				 acoes.volta(volta);
 				 break;
+				 
 			case 3:
 				System.out.println("Digite a posição que deseja alterar:");
 				posicao = new Scanner(System.in).nextInt();		
@@ -85,9 +64,25 @@ public class aula2poo {
 				volta = acoes.alterar(posicao, newProduto);
 				acoes.volta(volta);
 				break;
+				
+			case 4:
+				System.out.println("Digite a Posição que quer vizualizar unicamente:");
+				posicao = new Scanner(System.in).nextInt();	
+				
+				acoes.mostrarSeparado(posicao);		
+				break;
+			case 5:
+				System.out.println("Digite a Posição em que se encontra o  produto que deseja Excluir :");
+				posicao = new Scanner(System.in).nextInt();
+				
+				volta = acoes.excluir(posicao);
+				acoes.volta(volta);
+				break;
+			
+			default:
+				acoes.fechaPrograma();
 			}
 		}
-		
 		
 		
 		

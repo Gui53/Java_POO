@@ -13,7 +13,7 @@ public class Produto {
 	public Produto(String descricao, double valorUnitario, int estoque) {
 		this.descricao = descricao;
 		this.valorUnitario = valorUnitario;
-		this.estoque = (int) estoque;
+		this.estoque = estoque;
 	}
 	
 	public void mostrar(){
