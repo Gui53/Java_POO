@@ -83,10 +83,5 @@ public class aula2poo {
 				acoes.fechaPrograma();
 			}
 		}
-		
-		
-		
-		
-
 	}
 }

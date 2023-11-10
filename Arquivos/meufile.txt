@@ -1,0 +1,5 @@
+Olá Mundo
+Hello world
+whats app?
+Hoje é dia 08 de novembro e estamos aprendendo como manipular
+arquivos. Próximo tema é jdbc

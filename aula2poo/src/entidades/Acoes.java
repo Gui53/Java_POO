@@ -34,8 +34,6 @@ import java.util.ArrayList;
 		System.out.println("Valor Unitário: " + pSelecionado.valorUnitario);
 		System.out.println("Estoque: " + pSelecionado.estoque);
 		System.out.println();
-		
-
 	}
 	
 	public String excluir(int posicao) {
@@ -51,7 +49,6 @@ import java.util.ArrayList;
 		System.out.println("====================");
 		System.out.println("  Fim do Programa");
 		System.out.println("====================");
-
 	}
 	
 	public void menu() {
@@ -69,7 +66,7 @@ import java.util.ArrayList;
 	
 	public void volta(String volta) {
 		System.out.println(volta);
-		System.out.println("''''''''''''''''''''''''''");
+		System.out.println("--------------------------");
 		System.out.println();
 	}
 	
