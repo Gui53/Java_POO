@@ -1,10 +1,11 @@
 package classes;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 
 public class Acoes {
-	HashSet<Produto> lista = new HashSet<Produto>();
+	ArrayList<Produto> lista = new ArrayList<Produto>();
 	
 	public String inserir(Produto produto) {
 
@@ -15,7 +16,15 @@ public class Acoes {
 			return "Erro ao tentar Adicionar Produto";
 		}
 	}
-	@SuppressWarnings("unlikely-arg-type")
+	public String alterar(int posicao, Produto produto) {
+		try {
+			lista.set(posicao, produto);
+			return"Edição concluída!";
+		}catch (Exception e) {
+			// TODO: handle exception
+			return "Erro";
+		}
+	}
 	public String excluir(int posicao) {
 		try {
 			lista.remove(posicao);
@@ -36,7 +45,7 @@ public class Acoes {
 		System.out.println("--------------------------");
 		System.out.println();
 	}
-	public HashSet<Produto> listar() {
+	public ArrayList<Produto> listar() {
 		return lista;
 	}
 }

@@ -1,5 +1,6 @@
 package classes;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -7,7 +8,7 @@ import java.util.Scanner;
 public class Main {
 	static  Acoes acoes = new Acoes();
 	public static void main(String[] args) {
-		HashSet<Produto> lista = acoes.listar();
+		ArrayList<Produto> lista = acoes.listar();
 		
 		System.out.println("---------------");
 		System.out.println("---Bem-Vindo---");
@@ -49,14 +50,39 @@ public class Main {
 				volta = acoes.excluir(posicao);
 				acoes.volta(volta);
 				break;
-			/*case 4 :
+			case 4:
+				System.out.println("Digite a Posição que deseja editar");
+				posicao = new Scanner(System.in).nextInt();
+				
+				System.out.println("Digite a novq posição para o produto:");
+				String newDescription = new Scanner(System.in).next();
+				
+				System.out.println("Digite novo valor Unitario:");
+				double newValorUnit =  new Scanner(System.in).nextDouble();
+				
+				System.out.println("Digite novo estoque para " + newDescription );
+				int newEstoque =  new Scanner(System.in).nextInt();
+				
+				Produto newProduto = new Produto(newDescription, newValorUnit, newEstoque);
+				
+				volta = acoes.alterar(posicao, newProduto);
+				acoes.volta(volta);
+				break;
+			case 5:
+				System.out.println("Digite a Posição que quer vizualizar unicamente:");
+				posicao = new Scanner(System.in).nextInt();	
+				
+				acoes.mostrarUm(posicao);		
+				break;
+			
+			case 6 :
 				System.out.println("Tem certeza que deseja exluir tudo?");
 				String escolha = new Scanner(System.in).next();
 				
 				if(escolha == "Sim" || escolha == "s" || escolha == "S" || escolha == "sim") {
 					lista.clear();
 				}
-				break;*/
+				break;	
 			}
 		}
 
