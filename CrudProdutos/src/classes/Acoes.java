@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 
+
 public class Acoes {
 	ArrayList<Produto> lista = new ArrayList<Produto>();
 	
@@ -34,10 +35,20 @@ public class Acoes {
 			return "Um erro aconteceu!";
 		}
 	}
+	public void mostrarSeparado(int posicao) {
+		Produto pSelecionado = lista.get(posicao);
+		System.out.println("Descrição: " + pSelecionado.descricao);
+		System.out.println("Valor Unitário: " + pSelecionado.valorUnit);
+		System.out.println("Estoque: " + pSelecionado.estoque);
+		System.out.println();
+	}
 	
 	public void menu() {
 		System.out.println("Para mostrar a lista presione 1");
 		System.out.println("Para inserir item na lista presione 2");
+		System.out.println("Para excluir digite 3");
+		System.out.println("para alterar digite 4");
+		System.out.println("Para mostrar unicamente um produto digite 5");
 
 	}
 	public void volta(String volta) {

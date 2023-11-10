@@ -18,7 +18,6 @@ public class Main {
 		String volta = "";
 		int posicao = 0;
 
-		//Object p = lista.toArray()[posicao];
 		while(entrada < 6 && entrada >= 0) {
 			acoes.menu();
 			entrada = new Scanner(System.in).nextInt();
@@ -57,7 +56,7 @@ public class Main {
 				System.out.println("Digite a novq posição para o produto:");
 				String newDescription = new Scanner(System.in).next();
 				
-				System.out.println("Digite novo valor Unitario:");
+				System.out. println("Digite novo valor Unitario:");
 				double newValorUnit =  new Scanner(System.in).nextDouble();
 				
 				System.out.println("Digite novo estoque para " + newDescription );
@@ -72,17 +71,9 @@ public class Main {
 				System.out.println("Digite a Posição que quer vizualizar unicamente:");
 				posicao = new Scanner(System.in).nextInt();	
 				
-				acoes.mostrarUm(posicao);		
+				acoes.mostrarSeparado(posicao);
 				break;
 			
-			case 6 :
-				System.out.println("Tem certeza que deseja exluir tudo?");
-				String escolha = new Scanner(System.in).next();
-				
-				if(escolha == "Sim" || escolha == "s" || escolha == "S" || escolha == "sim") {
-					lista.clear();
-				}
-				break;	
 			}
 		}
 
