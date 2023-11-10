@@ -1,0 +1,10 @@
+Descrição: banana
+Valor unitário: 2.0
+Estoque: 3
+ ---------------
+
+Descrição: arroz
+Valor unitário: 2.0
+Estoque: 3
+ ---------------
+

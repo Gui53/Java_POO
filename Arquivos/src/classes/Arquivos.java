@@ -10,7 +10,7 @@ public class Arquivos {
 	static String FILE = "eufile.txt";
 
 	public static void main(String[] args) {
-		//escreverArquivo();
+		escreverArquivo();
 		try {
 			lerArquivo();
 		} catch (FileNotFoundException e) {
@@ -30,9 +30,10 @@ public class Arquivos {
 	}
 	
 	static void escreverArquivo() {
+		String pao = "pão";
 		try {
 			FileWriter writer = new FileWriter(FILE);
-			writer.write("Olá Mundo");
+			writer.write("Olá Mundo " + pao);
 			writer.write("\nHello word");
 			writer.write("\nwhats app?");
 
