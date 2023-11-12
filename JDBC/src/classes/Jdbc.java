@@ -19,7 +19,7 @@ public class Jdbc {
 		CatgoriaConnection catCon = new CatgoriaConnection();
 		catCon.inserir(categ);
 		for(Categoria c : catCon.Selecionar()) {
-			System.out.println("Id: " + c.getId() + "\nCategoria: " + c.getNome());
+			System.out.println(c.getId() + "\nCategoria: " + c.getNome());
 		}
 		con.fecharConexao();
 		
