@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Scanner;
 
 
@@ -20,7 +19,6 @@ public class Main {
 				System.out.println("Arquivo '" + FILE + "' Criado");
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -41,20 +39,23 @@ public class Main {
 			entrada = new Scanner(System.in).nextInt();
 			switch(entrada) {
 			case 1 :
-				
 				try {
-					Scanner ler = new Scanner(file);
-					while(ler.hasNextLine()) {
-						String linha = ler.nextLine();
-						System.out.println(linha);
+					if(lista.size() == 0) {
+						System.out.println("Até o momento, nenhum item na lista");
+						System.out.println();
+					}else {
+						System.out.println("Exibindo a lista diretamente do Arquivo...");
+						Scanner ler = new Scanner(file);
+						while(ler.hasNextLine()) {
+							String linha = ler.nextLine();
+							System.out.println(linha);
+						}
 					}
+					
 				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
-				
+				}		
 				break;
-				
 			case 2:
 				System.out.println("Insira uma descrição para o produto:");
 				String descricao = new Scanner(System.in).next();
@@ -66,15 +67,14 @@ public class Main {
 				int estoque = new Scanner(System.in).nextInt();
 				
 				
-				Produto produto = new Produto(descricao.toLowerCase(), valorUnit, estoque);
+				Produto produto = new Produto(descricao, valorUnit, estoque);
 				volta = acoes.inserir(produto);
 				try {
 					FileWriter writer = new FileWriter(FILE);
 					for(Produto p : lista ) {
 						writer.write(p.toString() + "\n\n");						
 					}
-					
-					writer.close();
+				writer.close();
 					
 					System.out.println("Feito");
 				}catch(IOException err) {
@@ -88,26 +88,23 @@ public class Main {
 				posicao = new Scanner(System.in).nextInt();
 				
 				volta = acoes.excluir(posicao);
+				acoes.volta(volta);
 				try {
 					FileWriter writer = new FileWriter(FILE);
 					for(Produto p : lista ) {
 						writer.write(p.toString() + "\n\n");						
 					}
-					System.out.println("Excluido com sucesso!");
 					writer.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+					System.out.println("Erro ao excluir do documento!");
 					e.printStackTrace();
 				}
-
-				
-				acoes.volta(volta);
 				break;
 			case 4:
 				System.out.println("Digite a Posição que deseja editar");
 				posicao = new Scanner(System.in).nextInt();
 				
-				System.out.println("Digite a novq posição para o produto:");
+				System.out.println("Digite a nova descrição para o produto:");
 				String newDescription = new Scanner(System.in).next();
 				
 				System.out.println("Digite novo valor Unitario:");
@@ -120,13 +117,51 @@ public class Main {
 				
 				volta = acoes.alterar(posicao, newProduto);
 				acoes.volta(volta);
+				
+				try {
+					FileWriter writer = new FileWriter(FILE);
+					for(Produto p : lista ) {
+						writer.write(p.toString() + "\n\n");						
+					}
+				writer.close();
+					
+					System.out.println("Feito");
+				}catch(IOException err) {
+					err.printStackTrace();
+				}
+				
 				break;
 			case 5:
 				System.out.println("Digite a Posição que quer vizualizar unicamente:");
 				posicao = new Scanner(System.in).nextInt();	
 				
 				acoes.mostrarSeparado(posicao);
+				
+				try {
+					FileWriter writer = new FileWriter(FILE);
+					for(Produto p : lista) {
+						writer.write(p.toString() + "\n\n");
+					}
+					writer.close();
+				}catch(IOException err){
+					System.out.println("Erro ao editar arquivo!");
+					err.printStackTrace();
+				}
 				break;
+			case 6:
+				acoes.apagarTudo();
+				try {
+					FileWriter writer = new FileWriter(FILE);
+					for(Produto p : lista) {
+						writer.write(p.toString());
+					}
+					writer.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				break;
+			default:
+				acoes.fechaPrograma();		
 			}
 		}
 		
