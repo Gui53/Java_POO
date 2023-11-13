@@ -28,14 +28,14 @@ public class Orientador {
 		}
 		
 	}
-	public void insert(String descricao, double valorUnitario) {
+	public void insert(Produto produto) {
 		Connection connect = Conexao.getConnection();
 		String sql = "INSERT INTO tb_produtos(descricao, valorUnitario)values(?,?)";
 		
 		try {
 			PreparedStatement stm = connect.prepareStatement(sql);
-			stm.setString(1, descricao);
-			stm.setDouble(2, valorUnitario);
+			stm.setString(1, produto.getDescricao());
+			stm.setDouble(2, produto.getValorUnit());
 			stm.execute();
 		} catch (SQLException e) {
 			throw new RuntimeException();
@@ -43,14 +43,14 @@ public class Orientador {
 			Conexao.fecharConexao();
 		}
 	}
-	public void update(int id, String descricao, double valorUnitario) {
+	public void update(int id, Produto produto) {
 		Connection connect = Conexao.getConnection();
 		String sql = "UPDATE tb_produtos SET DESCRICAO = ?, VALORUNITARIO = ? WHERE ID = ?";
 		
 		try {
 			PreparedStatement stm = connect.prepareStatement(sql);
-			stm.setString(1, descricao);
-			stm.setDouble(2, valorUnitario);
+			stm.setString(1, produto.getDescricao());
+			stm.setDouble(2, produto.getValorUnit());
 			stm.setInt(3, id);
 			stm.execute();
 		} catch (SQLException e) {
@@ -60,9 +60,4 @@ public class Orientador {
 			Conexao.fecharConexao();
 		}
 	}
-	public void mostrarTudo(ArrayList<Produto> lista){
-        for(Produto produto : lista){
-            System.out.println(produto.toString());
-        }
-    }
 }

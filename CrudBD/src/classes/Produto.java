@@ -10,6 +10,11 @@ public class Produto {
 		
 	}
 	
+	public Produto(String descricao, double valorUnitario) {
+		this.descricao = descricao;
+		this.valorUnitario = valorUnitario;
+	}
+	
 	public Produto(int id, String descricao, double valorUnitario) {
 		this.id = id;
 		this.descricao = descricao;
