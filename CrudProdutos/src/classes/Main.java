@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 public class Main {
-	static String FILE = "produtos.txt";
+	public static String FILE = "produtos.txt";
 	static  Acoes acoes = new Acoes();
 	public static void main(String[] args) {
 		File file = new File(FILE);
@@ -24,9 +24,7 @@ public class Main {
 		
 		ArrayList<Produto> lista = acoes.listar();
 		
-		System.out.println("---------------");
-		System.out.println("---Bem-Vindo---");
-		System.out.println("---------------");
+		Visual.boasVindas();
 		
 		int entrada = 1;
 		String volta = "";
@@ -35,7 +33,7 @@ public class Main {
 		
 
 		while(entrada < 6 && entrada >= 0) {
-			acoes.menu();
+			Visual.menu();
 			entrada = new Scanner(System.in).nextInt();
 			switch(entrada) {
 			case 1 :
@@ -68,7 +66,7 @@ public class Main {
 				
 				
 				Produto produto = new Produto(descricao, valorUnit, estoque);
-				volta = acoes.inserir(produto);
+				/*volta =*/ acoes.salvar(produto);
 				try {
 					FileWriter writer = new FileWriter(FILE);
 					for(Produto p : lista ) {
@@ -81,13 +79,13 @@ public class Main {
 					err.printStackTrace();
 				}
 				
-				 acoes.volta(volta);
+				 /*acoes.volta(volta);*/
 				 break;
 			case 3:
 				System.out.println("Selecione a posição que deseja excluir");
 				posicao = new Scanner(System.in).nextInt();
 				
-				volta = acoes.excluir(posicao);
+				/*volta =*/ acoes.excluir(posicao);
 				acoes.volta(volta);
 				try {
 					FileWriter writer = new FileWriter(FILE);
@@ -115,8 +113,8 @@ public class Main {
 				
 				Produto newProduto = new Produto(newDescription, newValorUnit, newEstoque);
 				
-				volta = acoes.alterar(posicao, newProduto);
-				acoes.volta(volta);
+				/*volta =*/ acoes.alterar(posicao, newProduto);
+				/*acoes.volta(volta);*/
 				
 				try {
 					FileWriter writer = new FileWriter(FILE);
@@ -161,7 +159,7 @@ public class Main {
 				}
 				break;
 			default:
-				acoes.fechaPrograma();		
+				Visual.fechaPrograma();		
 			}
 		}
 		

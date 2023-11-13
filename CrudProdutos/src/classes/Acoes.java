@@ -1,35 +1,35 @@
 package classes;
 
+
 import java.util.ArrayList;
 
-public class Acoes {
+public class Acoes implements PersistenciaProduto {
 	ArrayList<Produto> lista = new ArrayList<Produto>();
 	
-	public String inserir(Produto produto) {
-
+	public void salvar(Produto produto) {
 		try {
 			lista.add(produto);
-			return "Sucesso ao Adicionar";
+			System.out.println("Produto adicionado");
 		}catch(Exception erro) {
-			return "Erro ao tentar Adicionar Produto";
+			System.out.println("Erro ao tentar Adicionar Produto");
 		}
 	}
-	public String alterar(int posicao, Produto produto) {
+	public void alterar(int posicao, Produto produto) {
 		try {
 			lista.set(posicao, produto);
-			return"Edição concluída!";
+			System.out.println("Edição concluída!");
 		}catch (Exception e) {
-			return "Erro ao editar";
+			System.out.println("Erro ao editar");
 		}
 	}
-	public String excluir(int posicao) {
+	public void excluir(int posicao) {
 		try {
 			lista.remove(posicao);
-			return "Exclusão realizada";
+			System.out.println("Exclusão realizada");;
 		}
 		catch(Exception e) {
 			//e.printStackTrace();
-			return 	"erro ao excluir!";
+			System.out.println("erro ao excluir!");
 		}
 	}
 	public void mostrarSeparado(int posicao) {
@@ -40,16 +40,6 @@ public class Acoes {
 		System.out.println();
 	}
 	
-	public void menu() {
-		System.out.println("Para mostrar a lista presione 1");
-		System.out.println("Para inserir item na lista presione 2");
-		System.out.println("Para excluir digite 3");
-		System.out.println("para alterar digite 4");
-		System.out.println("Para mostrar unicamente um produto digite 5");
-		System.out.println("Para Excluir tudo pressione 6");
-		System.out.println("Para sair digite qualquer outro numero");
-
-	}
 	public void apagarTudo() {
 		System.out.println("Excluindo dados do arquivo . . . ");
 		try {
@@ -59,12 +49,21 @@ public class Acoes {
 			System.out.println("Erro ao apagar tudo!");
 		}
 	}
+	/*public void menu() {
+		System.out.println("Para mostrar a lista presione 1");
+		System.out.println("Para inserir item na lista presione 2");
+		System.out.println("Para excluir digite 3");
+		System.out.println("para alterar digite 4");
+		System.out.println("Para mostrar unicamente um produto digite 5");
+		System.out.println("Para Excluir tudo pressione 6");
+		System.out.println("Para sair digite qualquer outro numero");
+	}
 	public void fechaPrograma() {
 		
 		System.out.println("====================");
 		System.out.println("  Fim do Programa");
 		System.out.println("====================");
-	}
+	}*/
 	
 	public void volta(String volta) {
 		System.out.println(volta);

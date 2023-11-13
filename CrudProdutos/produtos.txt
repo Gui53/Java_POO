@@ -1,0 +1,5 @@
+Descrição: p3
+Valor unitário: 1.0
+Estoque: 3
+ ---------------
+
