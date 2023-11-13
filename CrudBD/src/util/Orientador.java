@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import classes.Produto;
 
-public class Orientador {
+public class Orientador implements PersistenciaProduto {
 	public  ArrayList<Produto> todosDados(){
 		Connection connect = Conexao.getConnection();
 		ArrayList<Produto> lista = new ArrayList<Produto>();
@@ -28,7 +28,7 @@ public class Orientador {
 		}
 		
 	}
-	public void insert(Produto produto) {
+	public void salvar (Produto produto) {
 		Connection connect = Conexao.getConnection();
 		String sql = "INSERT INTO tb_produtos(descricao, valorUnitario)values(?,?)";
 		
@@ -43,14 +43,14 @@ public class Orientador {
 			Conexao.fecharConexao();
 		}
 	}
-	public void update(int id, Produto produto) {
+	public void alterar(int id, Produto p) {
 		Connection connect = Conexao.getConnection();
 		String sql = "UPDATE tb_produtos SET DESCRICAO = ?, VALORUNITARIO = ? WHERE ID = ?";
 		
 		try {
 			PreparedStatement stm = connect.prepareStatement(sql);
-			stm.setString(1, produto.getDescricao());
-			stm.setDouble(2, produto.getValorUnit());
+			stm.setString(1, p.getDescricao());
+			stm.setDouble(2, p.getValorUnit());
 			stm.setInt(3, id);
 			stm.execute();
 		} catch (SQLException e) {
@@ -60,4 +60,5 @@ public class Orientador {
 			Conexao.fecharConexao();
 		}
 	}
+	
 }

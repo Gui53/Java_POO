@@ -39,7 +39,7 @@ public class CrudBD {
 				double valorUnitario = new Scanner(System.in).nextDouble();
 				
 				Produto produto = new Produto(descricao, valorUnitario);
-				orientador.insert(produto);
+				orientador.salvar(produto);
 				break;
 			case 3:
 				 System.out.println("Digite o código do produto a ser alterado: ");
@@ -52,7 +52,7 @@ public class CrudBD {
  				Produto p = new Produto(id, descricao, valorUnitario);
 
                  
-                 orientador.update(id, p);
+                 orientador.alterar(id, p);
                  break;
             case 4:
             	System.out.println("Serviço ainda não criado. Aguarde as próximas atualizações!");
