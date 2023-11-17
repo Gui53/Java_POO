@@ -1,0 +1,20 @@
+ID : 16 DESCRIÇÃO: Fanta Valor Unitário: 2.5
+
+ID : 17 DESCRIÇÃO: Arroz Valor Unitário: 13.5
+
+ID : 18 DESCRIÇÃO: Ovos Valor Unitário: 6.0
+
+ID : 19 DESCRIÇÃO: Mertilo Valor Unitário: 2.55
+
+ID : 20 DESCRIÇÃO: Manga Valor Unitário: 2.5
+
+ID : 21 DESCRIÇÃO: Caju Valor Unitário: 4.0
+
+ID : 22 DESCRIÇÃO: Alcatra Valor Unitário: 19.99
+
+ID : 23 DESCRIÇÃO: Uva Valor Unitário: 3.5
+
+ID : 24 DESCRIÇÃO: Danone Valor Unitário: 1.25
+
+ID : 25 DESCRIÇÃO: Salgado Valor Unitário: 2.0
+

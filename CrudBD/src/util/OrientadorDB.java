@@ -6,12 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import Interfaces.ModDB;
+import Interfaces.PersistenciaProduto;
 import classes.Produto;
 
-public class Orientador implements PersistenciaProduto {
+public class OrientadorDB implements PersistenciaProduto<Produto>, ModDB<Produto> {
 	public  ArrayList<Produto> todosDados(){
-		Connection connect = Conexao.getConnection();
 		ArrayList<Produto> lista = new ArrayList<Produto>();
+		Connection connect = Conexao.getConnection();
 		String sql = "SELECT * FROM tb_produtos";
 		
 		try {
@@ -59,6 +61,16 @@ public class Orientador implements PersistenciaProduto {
 		}finally {
 			Conexao.fecharConexao();
 		}
+	}
+	@Override
+	public void excluir(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mostrarSeparado(int id) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

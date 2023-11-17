@@ -5,7 +5,6 @@ public class Produto {
 	private String descricao;
 	private double valorUnitario;
 	
-	
 	public Produto(){
 		
 	}
@@ -46,6 +45,6 @@ public class Produto {
 	}
 	
 	public String toString() {
-		return "ID : " + id + " DESCRIÇÃO: " + descricao + "Valor Unitário: " + valorUnitario;
+		return "ID : " + id + " DESCRIÇÃO: " + descricao + " Valor Unitário: " + valorUnitario;
 	}
 }

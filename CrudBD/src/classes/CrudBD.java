@@ -1,18 +1,29 @@
 package classes;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import util.Conexao;
 import util.MostrarTudo;
-import util.Orientador;
+import util.OrientadorArq;
+import util.OrientadorDB;
 
 public class CrudBD {
-
+	public static String FILE = "produtos.txt";
+	
 	public static void main(String[] args) {
-		Orientador orientador = new Orientador();
-		MostrarTudo tudo = new MostrarTudo();
-		ArrayList<Produto> lista = orientador.todosDados();
+		Conexao.criarArquivo();
+		
+		OrientadorDB orientador = new OrientadorDB();
+		OrientadorArq arqv = new OrientadorArq();
+		
+		ArrayList<Produto> listaDB = orientador.todosDados();
+		//ArrayList<Produto> listaArqv = arqv.listar();
+		
 		
 		String nextv = "s";
 		
@@ -28,8 +39,18 @@ public class CrudBD {
 			
 			switch (opcao) {
 			case 1:
-				lista = orientador.todosDados();
-				tudo.mostrarTudo(lista);
+				listaDB = orientador.todosDados();
+				MostrarTudo.mostrarTudo(listaDB);
+				try {
+					FileWriter writer = new FileWriter(FILE);
+					for(Produto p : listaDB) {
+						writer.write(p.toString() + "\n\n");
+					}
+					writer.close();
+					System.out.println("Feito!");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 				break;
 			case 2:
 				System.out.println("Insira uma descrição para o produto:");
@@ -40,6 +61,20 @@ public class CrudBD {
 				
 				Produto produto = new Produto(descricao, valorUnitario);
 				orientador.salvar(produto);
+				//arqv.salvar(produto);
+				
+				try {
+					FileWriter writer = new FileWriter(FILE);
+					for(Produto p : listaDB) {
+						writer.write(p.toString() + "\n\n");
+					}
+					writer.close();
+					System.out.println("Feito!");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
 				break;
 			case 3:
 				 System.out.println("Digite o código do produto a ser alterado: ");
@@ -51,8 +86,8 @@ public class CrudBD {
                  
  				Produto p = new Produto(id, descricao, valorUnitario);
 
-                 
                  orientador.alterar(id, p);
+                 arqv.alterar(id, p);
                  break;
             case 4:
             	System.out.println("Serviço ainda não criado. Aguarde as próximas atualizações!");
